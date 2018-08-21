@@ -23,10 +23,9 @@ const server = {
 
     const server = http.createServer(app);
 
-    server.listen(
-      (config && config.port)|| globalConfig.get('port'),
-      connectMessage,
-    );
+    const port = (config && config.port)|| globalConfig.get('port');
+
+    server.listen(port, connectMessage({ port }));
   }
 }
 
