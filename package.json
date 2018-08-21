@@ -1,0 +1,27 @@
+{
+  "name": "portal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.mjs",
+  "scripts": {
+    "start-dev": "nodemon --experimental-modules app.mjs",
+    "start-prod": "node --experimental-modules app.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SurenAt93/portal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SurenAt93/portal/issues"
+  },
+  "homepage": "https://github.com/SurenAt93/portal#readme",
+  "dependencies": {
+    "nconf": "^0.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
