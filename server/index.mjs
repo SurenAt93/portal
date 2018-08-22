@@ -11,6 +11,10 @@ import globalConfig from './config';
 import cors from 'cors';
 import errorHandler from './errorHandler';
 
+import path from 'path';
+
+const __main__ = path.dirname(process.argv[1]) === __dirname;
+
 const server = {
   async start(config) {
     const app = express();
@@ -27,6 +31,10 @@ const server = {
 
     server.listen(port, connectMessage({ port }));
   }
+};
+
+if(__main__) {
+  server.start();
 }
 
 export default server;
