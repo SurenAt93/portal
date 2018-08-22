@@ -28,7 +28,7 @@ const server = {
 
     const server = http.createServer(app);
 
-    const port = (config && config.port)|| globalConfig.get('port');
+    const port = (config && config.port) || globalConfig.get('port');
 
     server.listen(port, connectMessage({ port }));
   }
