@@ -13,7 +13,8 @@ import errorHandler from './errorHandler';
 
 import path from 'path';
 
-const __main__ = path.dirname(process.argv[1]) === __dirname;
+const [, entryFile] = process.argv;
+const __main__ = path.dirname(entryFile) === __dirname;
 
 const server = {
   async start(config) {
