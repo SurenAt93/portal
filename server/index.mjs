@@ -1,20 +1,31 @@
 import { __getDirname, connectMessage } from './utils/';
 const __dirname = __getDirname(import.meta.url);
 
+// Native packages
 import http from 'http';
+import path from 'path';
+
+// Third-party packages
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import express from 'express';
 import morgan from 'morgan';
-
-import globalConfig from './config';
 import cors from 'cors';
+
+// Config
+import globalConfig from './config';
+
+// Middlewares
 import errorHandler from './errorHandler';
 
-import path from 'path';
-
 const [, entryFile] = process.argv;
-const __main__ = path.dirname(entryFile) === __dirname;
+const rootPath = path.dirname(entryFile);
+
+const __main__ = rootPath === __dirname;
+
+const clientPath = __main__
+  ? path.join(__dirname, '../client')
+  : path.join(rootPath, './client');
 
 const server = {
   async start(config) {
@@ -25,6 +36,10 @@ const server = {
     app.use(cookieParser());
 
     app.use(errorHandler);
+
+    app.use(express.static(path.join(clientPath, 'build')));
+
+    app.get('*', (req, res) => res.sendFile(path.join(clientPath, 'build/index.html')));
 
     const server = http.createServer(app);
 
