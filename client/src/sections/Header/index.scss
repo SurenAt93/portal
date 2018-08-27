@@ -1,0 +1,11 @@
+.header {
+  &__logo {
+    margin-right: 10px;
+  }
+
+  &__title::first-letter {
+    color: #40C4FF;
+    font-size: 27px;
+    font-weight: 900;
+  }
+}
