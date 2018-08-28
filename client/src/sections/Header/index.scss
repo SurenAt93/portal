@@ -1,11 +1,20 @@
 .header {
-  &__logo {
-    margin-right: 10px;
-  }
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
 
-  &__title::first-letter {
-    color: #40C4FF;
-    font-size: 27px;
-    font-weight: 900;
+    &--home {
+      margin-right: 10px;
+    }
+
+    &__title {
+      flex-grow: 1;
+
+      &::first-letter {
+        color: #40C4FF;
+        font-size: 27px;
+        font-weight: 900;
+      }
+    }
   }
 }

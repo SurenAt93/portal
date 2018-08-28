@@ -10,14 +10,15 @@ const themes = {
     },
   },
 
-  editor: {
+  fileManager: {
     palette: {
       primary: {
         main: '#202124',
       },
       text: {
         primary: '#fff',
-      }
+      },
+      type: 'dark',
     },
   },
 }

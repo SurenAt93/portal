@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Header } from 'sections';
+import { Header, Content } from 'sections';
 
 import ThemeProvider from 'store/themes';
 
@@ -12,6 +12,7 @@ class App extends Component {
       <ThemeProvider>
         <div>
           <Header />
+          <Content />
         </div>
       </ThemeProvider>
     );

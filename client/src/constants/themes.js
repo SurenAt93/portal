@@ -1,2 +1,2 @@
 export const DEFAULT = 'default';
-export const EDITOR = 'editor';
+export const FILEMANAGER = 'fileManager';
