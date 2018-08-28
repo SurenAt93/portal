@@ -21,7 +21,18 @@ const themes = {
       type: 'dark',
     },
   },
-}
+
+  monaco: {
+    'night-dark': {
+      base: 'vs-dark',
+      inherit: true,
+      rules: [],
+      colors: {
+        'editor.background': '#202124',
+      },
+    },
+  },
+};
 
 const urls = {
   monaco_loader: '/monaco-editor/vs/loader.js',

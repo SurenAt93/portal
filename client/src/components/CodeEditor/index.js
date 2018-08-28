@@ -11,7 +11,6 @@ class CodeEditor extends PureComponent {
 
   state = {
     isEditorMounted: false,
-    theme: 'vs-dark',
   }
 
   editorDidMount = (getEditorValue, editor) => {
@@ -35,7 +34,6 @@ class CodeEditor extends PureComponent {
         value={value}
         valueGetter={getEditorValue => (this.getEditorValue = getEditorValue)}
         editorDidMount={this.editorDidMount}
-        theme={this.state.theme}
       />
     );
   }

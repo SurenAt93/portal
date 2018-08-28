@@ -7,6 +7,9 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 // Utils
 import monaco from 'utils/monaco-editor';
 
+// Config
+import { themes } from 'config';
+
 import './index.scss';
 
 class Editor extends PureComponent {
@@ -16,7 +19,6 @@ class Editor extends PureComponent {
     height: '100%',
     value: '<div>Sample text...</div>',
     language: 'html',
-    theme: 'vs-dark',
     options: {},
     editorDidMount: _ => {}
   };
@@ -73,7 +75,13 @@ class Editor extends PureComponent {
       ...options,
     });
 
-    theme && this.monaco.editor.setTheme(theme);
+    if (theme) {
+      this.monaco.editor.setTheme(theme);
+    } else {
+      this.monaco.editor.defineTheme('night-dark', themes.monaco['night-dark']);
+
+      this.monaco.editor.setTheme('night-dark');
+    }
 
     editorDidMount && editorDidMount(this.editor.getValue.bind(this.editor), this.editor);
 
@@ -115,7 +123,7 @@ Editor.propTypes = {
   value: PropTypes.string,
   valueGetter: PropTypes.func.isRequired,
   editorDidMount: PropTypes.func.isRequired,
-  theme: PropTypes.string.isRequired,
+  theme: PropTypes.string,
 };
 
 export default Editor;
