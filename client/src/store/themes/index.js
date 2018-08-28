@@ -6,21 +6,38 @@ import {
   MuiThemeProvider,
 } from '@material-ui/core/styles';
 
+import { withRouter } from 'react-router-dom';
+
 import { themes as configThemes } from 'config';
 
 const themes = {
   default: createMuiTheme(configThemes.default),
-  editor: createMuiTheme(configThemes.editor),
+  fileManager: createMuiTheme(configThemes.fileManager),
 };
 
+const mapRouteToThemes = {
+  '/': 'default',
+  '/file-manager': 'fileManager',
+}
+
 class ThemeProvider extends PureComponent {
+  static getDerivedStateFromProps(props, state) {
+    const { pathname } = props.location;
+    const theme = themes[mapRouteToThemes[pathname]];
+
+    if (theme && state.theme !== theme) {
+      return { theme };
+    }
+
+    return null;
+  }
+
   state = { theme: themes.default };
 
   changeTheme = theme => themes[theme] &&
     this.setState({ theme: themes[theme] });
 
   render() {
-
     const {
       state,
       changeTheme,
@@ -36,4 +53,4 @@ class ThemeProvider extends PureComponent {
 
 export { withTheme };
 
-export default ThemeProvider;
+export default withRouter(ThemeProvider);
