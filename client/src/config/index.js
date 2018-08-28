@@ -23,6 +23,11 @@ const themes = {
   },
 }
 
+const urls = {
+  monaco_loader: '/monaco-editor/vs/loader.js',
+  monaco_base: '/monaco-editor/vs',
+}
+
 const helperTexts = { };
 
 const messages = { };
@@ -31,4 +36,5 @@ export {
   helperTexts,
   messages,
   themes,
+  urls,
 };
