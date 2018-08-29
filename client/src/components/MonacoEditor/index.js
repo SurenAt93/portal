@@ -65,6 +65,8 @@ class Editor extends PureComponent {
     }
   }
 
+  updateDimensions = _ => this.editor.layout();
+
   createEditor() {
 
     const { value, language, theme, options, editorDidMount } = this.props;
@@ -85,10 +87,13 @@ class Editor extends PureComponent {
 
     editorDidMount && editorDidMount(this.editor.getValue.bind(this.editor), this.editor);
 
+    window.addEventListener('resize', this.updateDimensions);
+
     this.setState({ isLoading: false });
   }
 
   componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions);
     this.removeEditor();
   }
 
