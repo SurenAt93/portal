@@ -1,4 +1,5 @@
 import React, { PureComponent, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -32,7 +33,12 @@ class Folder extends PureComponent {
             }
           </div>
         </ListItem>
-        <Collapse className="files__folder--collapse" in={this.state.open} timeout="auto" unmountOnExit>
+        <Collapse
+          className="files__folder--collapse"
+          in={this.state.open}
+          timeout="auto"
+          unmountOnExit
+        >
           <List className="files__folder" dense={true}>
             {children.map(drow)}
           </List>
@@ -41,5 +47,11 @@ class Folder extends PureComponent {
     );
   }
 }
+
+Folder.propTypes = {
+  name: PropTypes.string.isRequired,
+  children: PropTypes.array.isRequired,
+  drow: PropTypes.func.isRequired,
+};
 
 export default Folder;

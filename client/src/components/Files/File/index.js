@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Button from '@material-ui/core/Button';
 import ListItem from '@material-ui/core/ListItem';
@@ -16,5 +17,14 @@ const File = ({ name, handleFileOpen }) => (
     </div>
   </ListItem>
 );
+
+File.propTypes = {
+  name: PropTypes.string.isRequired,
+  handleFileOpen: PropTypes.func,
+};
+
+File.defaultProps = {
+  handleFileOpen: _ => {},
+};
 
 export default File;

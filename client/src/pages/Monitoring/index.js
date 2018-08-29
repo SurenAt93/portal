@@ -1,11 +1,5 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
-class Monitoring extends PureComponent {
-  render() {
-    return (
-      <div>Monitoring</div>
-    );
-  }
-}
+const Monitoring = props => <div>Monitoring</div>;
 
 export default Monitoring;

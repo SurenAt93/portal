@@ -13,16 +13,6 @@ import { themes } from 'config';
 import './index.scss';
 
 class Editor extends PureComponent {
-
-  static defaultProps = {
-    width: '100%',
-    height: '100%',
-    value: '<div>Sample text...</div>',
-    language: 'html',
-    options: {},
-    editorDidMount: _ => {}
-  };
-
   state = {
     isLoading: true,
   };
@@ -129,10 +119,23 @@ class Editor extends PureComponent {
 }
 
 Editor.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
   value: PropTypes.string,
+  language: PropTypes.string,
+  options: PropTypes.object,
   valueGetter: PropTypes.func.isRequired,
   editorDidMount: PropTypes.func.isRequired,
   theme: PropTypes.string,
+};
+
+Editor.defaultProps = {
+  width: '100%',
+  height: '100%',
+  value: '<div>Sample text...</div>',
+  language: 'html',
+  options: {},
+  editorDidMount: _ => {}
 };
 
 export default Editor;

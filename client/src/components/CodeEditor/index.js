@@ -35,8 +35,16 @@ class CodeEditor extends PureComponent {
   }
 }
 
+CodeEditor.defaultProps = {
+  value: '',
+  language: 'html',
+  line: 0,
+};
+
 CodeEditor.propTypes = {
   value: PropTypes.string,
+  language: PropTypes.string,
+  line: PropTypes.number,
 };
 
 export default CodeEditor;
