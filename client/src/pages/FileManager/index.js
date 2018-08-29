@@ -24,7 +24,7 @@ class FileManager extends PureComponent {
         <Splitter
           position="vertical"
           primaryPaneWidth="15%"
-          primaryPaneMinWidth="170px"
+          primaryPaneMinWidth="0"
         >
           <Files handleFileOpen={this.handleFileOpen} data={sampleFileStructure} />
           <CodeEditor
