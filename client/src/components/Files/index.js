@@ -14,7 +14,7 @@ class Files extends PureComponent {
   drow = ({ name, children }) => {
     return children
       ? <Folder key={Files.uniqueKey++} name={name} children={children} drow={this.drow} />
-      : <File key={Files.uniqueKey++} name={name} />
+      : <File handleFileOpen={this.props.handleFileOpen} key={Files.uniqueKey++} name={name} />
   }
 
   render() {

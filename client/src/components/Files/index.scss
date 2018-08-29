@@ -8,6 +8,11 @@
   ul {
     height: 100%;
     width: fit-content;
+
+    li {
+      padding-top: 4px !important;
+      padding-bottom: 4px !important;
+    }
   }
 
   &__item {
@@ -27,8 +32,13 @@
   &__summary {
     display: flex;
     align-items: center;
+
     > svg {
       margin-right: 10px;
+    }
+
+    button {
+      text-transform: none;
     }
   }
 }

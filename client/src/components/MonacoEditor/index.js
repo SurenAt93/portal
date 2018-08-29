@@ -33,7 +33,7 @@ class Editor extends PureComponent {
       .then(monaco => (this.monaco = monaco) && this.createEditor());
   }
 
-  componentDidUpdate({ value, language, width, height, theme }) {
+  componentDidUpdate({ value, language, width, height, theme, line }) {
 
     const { editor, monaco } = this;
 
@@ -50,6 +50,10 @@ class Editor extends PureComponent {
 
       if (language !== this.props.language) {
         monaco.editor.setModelLanguage(this.editor.getModel(), this.props.language);
+      }
+
+      if (line !== this.props.line) {
+        editor.setScrollPosition({ scrollTop: line });
       }
 
       if (theme !== this.props.theme) {

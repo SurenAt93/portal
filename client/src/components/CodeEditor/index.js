@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 // Components
 import Editor from 'components/MonacoEditor';
 
-// Example
-const codeExample = `<div>Sample text</div>`;
-
 class CodeEditor extends PureComponent {
 
   state = {
@@ -26,14 +23,13 @@ class CodeEditor extends PureComponent {
   }
 
   render() {
-
-    const value = this.props.value || codeExample;
-
     return (
       <Editor
-        value={value}
+        value={this.props.value}
+        language={this.props.language}
         valueGetter={getEditorValue => (this.getEditorValue = getEditorValue)}
         editorDidMount={this.editorDidMount}
+        line={this.props.line || 0}
       />
     );
   }

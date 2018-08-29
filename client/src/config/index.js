@@ -43,9 +43,86 @@ const helperTexts = { };
 
 const messages = { };
 
+const sampleFileStructure = {
+  name: '/',
+  children: [
+    {
+      name: 'home',
+      children: [
+        {
+          name: 'project_1',
+          children: [
+            { name: 'app.js' },
+            { name: 'config.js' },
+            { name: 'util.js' },
+          ],
+        },
+        {
+          name: 'project_2',
+          children: [
+            { name: 'index.html' },
+            { name: 'script.js' },
+            { name: 'style.css' },
+          ],
+        },
+      ]
+    },
+    {
+      name: 'empty_folder',
+      loading: true,
+      children: []
+    },
+    {
+      name: 'opt',
+      children: [
+          {
+            name: 'libs',
+            children: [
+              { name: '.git', children: [ { name: 'config.yaml' } ] },
+              { name: 'ssd.rs' },
+              { name: 'so.c' },
+              { name: 'log.py' },
+              { name: 'hud.cpp' },
+              { name: 'odd.swift' },
+              { name: 'pwe.yaml' },
+              { name: 'og.rb' },
+              { name: 'server.ts' },
+              { name: 'config.json' },
+              { name: 'init.go' },
+              { name: 'sc.lua' },
+              { name: 'query.sql' },
+              { name: 'tb.xml' },
+            ],
+          },
+      ],
+    },
+  ],
+};
+
+const mapExtToLang = {
+  'js': 'javascript',
+  'html': 'html',
+  'css': 'css',
+  'rs': 'rust',
+  'c': 'c',
+  'cpp': 'cpp',
+  'py': 'python',
+  'swift': 'swift',
+  'yaml': 'yaml',
+  'rb': 'ruby',
+  'ts': 'typescript',
+  'json': 'json',
+  'go': 'go',
+  'lua': 'lua',
+  'sql': 'sql',
+  'xml': 'xml',
+};
+
 export {
   helperTexts,
   messages,
   themes,
   urls,
+  sampleFileStructure,
+  mapExtToLang,
 };

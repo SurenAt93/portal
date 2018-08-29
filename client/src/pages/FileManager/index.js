@@ -6,67 +6,18 @@ import Splitter from 'm-react-splitters';
 import CodeEditor from 'components/CodeEditor';
 import Files from 'components/Files';
 
+import { sampleFileStructure, mapExtToLang } from 'config';
+import sampleFiles from 'config/sampleFiles';
+
 import './index.scss';
 
-const data = {
-  name: 'root',
-  toggled: true,
-  children: [
-    {
-      name: 'parent',
-      children: [
-        { name: 'child1' },
-        { name: 'child2' },
-        { name: 'child3' },
-        { name: 'child3' },
-        { name: 'child3' },
-        { name: 'child3' },
-        { name: 'child3' },
-        { name: 'child3' },
-        { name: 'child3' },
-        { name: 'child3' },
-        { name: 'child3' },
-        { name: 'child3' },
-        { name: 'child3' },
-        { name: 'child3' },
-        { name: 'child3' },
-        { name: 'child3' },
-        { name: 'child3' },
-      ]
-    },
-    {
-      name: 'loading parent',
-      loading: true,
-      children: []
-    },
-    {
-      name: 'parent',
-      children: [
-          {
-            name: 'nested parent',
-            children: [
-              { name: 'nested child 1' },
-              { name: 'nested child 2' },
-              { name: 'nested child 2' },
-              { name: 'nested child 2' },
-              { name: 'nested child 2' },
-              { name: 'nested child 2' },
-              { name: 'nested child 2' },
-              { name: 'nested child 2' },
-              { name: 'nested child 2' },
-              { name: 'nested child 2' },
-              { name: 'nested child 2' },
-              { name: 'nested child 2' },
-              { name: 'nested child 2' },
-              { name: 'nested child 2' },
-            ],
-          },
-      ],
-    },
-  ],
-};
-
 class FileManager extends PureComponent {
+
+  state = { currentFileName: null, updateLine: 0 };
+
+  handleFileOpen = name =>
+    this.setState({ currentFileName: name, updateLine: !this.state.updateLine });
+
   render() {
     return (
       <div className="file-manager">
@@ -75,8 +26,13 @@ class FileManager extends PureComponent {
           primaryPaneWidth="15%"
           primaryPaneMinWidth="170px"
         >
-          <Files data={data} />
-          <CodeEditor className="code-editor"/>
+          <Files handleFileOpen={this.handleFileOpen} data={sampleFileStructure} />
+          <CodeEditor
+            className="code-editor"
+            line={this.state.updateLine}
+            value={this.state.currentFileName ? sampleFiles[this.state.currentFileName] : ''}
+            language={this.state.currentFileName ? mapExtToLang[this.state.currentFileName.split('.')[1]] : 'html'}
+          />
         </Splitter>
       </div>
     );
