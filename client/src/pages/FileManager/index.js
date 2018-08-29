@@ -72,8 +72,8 @@ class FileManager extends PureComponent {
       <div className="file-manager">
         <Splitter
           position="vertical"
-          primaryPaneWidth="10%"
-          primaryPaneMinWidth="168px"
+          primaryPaneWidth="15%"
+          primaryPaneMinWidth="170px"
         >
           <Files data={data} />
           <CodeEditor className="code-editor"/>

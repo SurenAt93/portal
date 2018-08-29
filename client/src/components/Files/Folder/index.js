@@ -1,29 +1,45 @@
-import React from 'react';
+import React, { PureComponent, Fragment } from 'react';
 
 import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import Collapse from '@material-ui/core/Collapse';
 
 // Icons
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import FolderIcon from '@material-ui/icons/Folder';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 
-const Folder = ({ name, children, drow }) => (
-  <ExpansionPanel>
-    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-      <ListItemIcon><FolderIcon /></ListItemIcon>
-      <ListItemText primary={name}/>
-    </ExpansionPanelSummary>
-    <ExpansionPanelDetails>
-      <List className="files__folder" dense={true}>
-        {children.map(drow)}
-      </List>
-    </ExpansionPanelDetails>
-  </ExpansionPanel>
-);
+class Folder extends PureComponent {
+  state = { open: false };
+
+  handleClick = _ => this.setState(state => ({ open: !state.open }));
+
+  render() {
+    const { name, children, drow } = this.props;
+
+    return (
+      <Fragment>
+        <ListItem button onClick={this.handleClick} className="files__item">
+          <div className="files__summary">
+            <ListItemIcon><FolderIcon /></ListItemIcon>
+            <ListItemText primary={name}/>
+            {
+              this.state.open
+                ? <ExpandLess className="u-white u-padding-top" />
+                : <ExpandMore className="u-white u-padding-top" />
+            }
+          </div>
+        </ListItem>
+        <Collapse className="files__folder--collapse" in={this.state.open} timeout="auto" unmountOnExit>
+          <List className="files__folder" dense={true}>
+            {children.map(drow)}
+          </List>
+        </Collapse>
+      </Fragment>
+    );
+  }
+}
 
 export default Folder;
