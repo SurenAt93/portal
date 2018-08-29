@@ -9,10 +9,12 @@ import './index.scss';
 
 class Files extends PureComponent {
 
+  static uniqueKey = 0; // There should be an id of file from OS
+
   drow = ({ name, children }) => {
     return children
-      ? <Folder name={name} children={children} drow={this.drow} />
-      : <File name={name} />
+      ? <Folder key={Files.uniqueKey++} name={name} children={children} drow={this.drow} />
+      : <File key={Files.uniqueKey++} name={name} />
   }
 
   render() {

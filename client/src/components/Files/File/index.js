@@ -9,7 +9,7 @@ import FileIcon from '@material-ui/icons/Notes';
 
 const File = ({ name }) => (
   <ListItem className="files__item">
-    <div class="files__summary">
+    <div className="files__summary">
       <ListItemIcon><FileIcon /></ListItemIcon>
       <ListItemText primary={name}/>
     </div>
