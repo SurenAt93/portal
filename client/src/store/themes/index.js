@@ -25,7 +25,7 @@ class ThemeProvider extends PureComponent {
     const { pathname } = props.location;
     const theme = themes[mapRouteToThemes[pathname]];
 
-    if (theme && state.theme !== theme) {
+    if (theme && (state.theme !== theme)) {
       return { theme };
     }
 
@@ -35,16 +35,11 @@ class ThemeProvider extends PureComponent {
   state = { theme: themes.default };
 
   changeTheme = theme => themes[theme] &&
-    this.setState({ theme: themes[theme] });
+    this.setState({ theme: themes[mapRouteToThemes[theme]] });
 
   render() {
-    const {
-      state,
-      changeTheme,
-    } = this;
-
     return(
-      <MuiThemeProvider theme={{ ...state.theme, changeTheme }}>
+      <MuiThemeProvider theme={this.state.theme}>
         {this.props.children}
       </MuiThemeProvider>
     );

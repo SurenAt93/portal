@@ -10,10 +10,8 @@ import './App.scss';
 const App = _ => (
   <BrowserRouter>
     <ThemeProvider>
-      <div>
-        <Header />
-        <Content />
-      </div>
+      <Header />
+      <Content />
     </ThemeProvider>
   </BrowserRouter>
 );
