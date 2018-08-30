@@ -23,12 +23,12 @@ class Files extends PureComponent {
       <div className="files">
         {
           this.props.data
-            ? 'Empty...'
-            : (
+            ? (
               <List dense={true}>
                 {this.drow(this.props.data)}
               </List>
             )
+            : 'Empty...'
         }
       </div>
     );
@@ -41,7 +41,6 @@ Files.propTypes = {
 };
 
 Files.defaultProps = {
-  data: {},
   handleFileOpen: _ => {},
 };
 
