@@ -9,8 +9,7 @@ import Collapse from '@material-ui/core/Collapse';
 
 // Icons
 import FolderIcon from '@material-ui/icons/Folder';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
+import FolderIconOpen from '@material-ui/icons/FolderOpen';
 
 class Folder extends PureComponent {
   state = { open: false };
@@ -24,13 +23,14 @@ class Folder extends PureComponent {
       <Fragment>
         <ListItem button onClick={this.handleClick} className="files__item">
           <div className="files__summary">
-            <ListItemIcon><FolderIcon /></ListItemIcon>
+            <ListItemIcon>
+              {
+                this.state.open
+                  ? <FolderIconOpen />
+                  : <FolderIcon />
+              }
+            </ListItemIcon>
             <ListItemText primary={name}/>
-            {
-              this.state.open
-                ? <ExpandLess className="u-white u-padding-top" />
-                : <ExpandMore className="u-white u-padding-top" />
-            }
           </div>
         </ListItem>
         <Collapse
@@ -55,3 +55,4 @@ Folder.propTypes = {
 };
 
 export default Folder;
+
