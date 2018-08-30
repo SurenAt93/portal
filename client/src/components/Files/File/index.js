@@ -13,7 +13,9 @@ const File = ({ name, handleFileOpen }) => (
   <ListItem className="files__item">
     <div className="files__summary">
       <ListItemIcon><FileIcon /></ListItemIcon>
-      <Button onClick={_ => handleFileOpen(name)}><ListItemText primary={name}/></Button>
+      <Button onClick={_ => handleFileOpen(name)}>
+        <ListItemText primary={name}/>
+      </Button>
     </div>
   </ListItem>
 );

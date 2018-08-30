@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<File /> should render normaly 1`] = `
+<WithStyles(ListItem)
+  className="files__item"
+>
+  <div
+    className="files__summary"
+  >
+    <WithStyles(ListItemIcon)>
+      <pure(Notes) />
+    </WithStyles(ListItemIcon)>
+    <WithStyles(Button)
+      onClick={[Function]}
+    >
+      <WithStyles(ListItemText)
+        primary="app.js"
+      />
+    </WithStyles(Button)>
+  </div>
+</WithStyles(ListItem)>
+`;

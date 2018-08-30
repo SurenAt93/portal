@@ -21,9 +21,15 @@ class Files extends PureComponent {
   render() {
     return (
       <div className="files">
-        <List dense={true}>
-          {this.drow(this.props.data)}
-        </List>
+        {
+          this.props.data
+            ? 'Empty...'
+            : (
+              <List dense={true}>
+                {this.drow(this.props.data)}
+              </List>
+            )
+        }
       </div>
     );
   }
