@@ -4,16 +4,17 @@ import { Header, Content } from 'sections';
 
 import { BrowserRouter } from 'react-router-dom';
 import ThemeProvider from 'store/themes';
-
-import './App.scss';
+import { JssProvider } from '_jss';
 
 const App = _ => (
-  <BrowserRouter>
-    <ThemeProvider>
-      <Header />
-      <Content />
-    </ThemeProvider>
-  </BrowserRouter>
+  <JssProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <Header />
+        <Content />
+      </ThemeProvider>
+    </BrowserRouter>
+  </JssProvider>
 );
 
 export default App;

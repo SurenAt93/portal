@@ -10,7 +10,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import FileIcon from '@material-ui/icons/Notes';
 
 const File = ({ name, handleFileOpen }) => (
-  <ListItem className="files__item">
+  <ListItem className="files__item file">
     <div className="files__summary">
       <ListItemIcon><FileIcon /></ListItemIcon>
       <Button onClick={_ => handleFileOpen(name)}>
