@@ -7,11 +7,12 @@
 
   ul {
     height: 100%;
-    width: fit-content;
+    min-width: max-content;
 
     li {
       padding-top: 4px !important;
       padding-bottom: 4px !important;
+      padding-right: 0 !important;
     }
   }
 
@@ -32,6 +33,7 @@
   &__summary {
     display: flex;
     align-items: center;
+    width: 100%;
 
     > svg {
       margin-right: 10px;
@@ -39,6 +41,8 @@
 
     button {
       text-transform: none;
+      width: 100%;
+      text-align: start;
     }
   }
 }
