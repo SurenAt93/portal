@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Files /> should render 'Empty' in case of it renders without props 1`] = `
+exports[`<Files /> should render correctly 1`] = `
 <div
   className="files"
 >

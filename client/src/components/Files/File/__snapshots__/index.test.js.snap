@@ -2,7 +2,7 @@
 
 exports[`<File /> should render normaly 1`] = `
 <WithStyles(ListItem)
-  className="files__item"
+  className="files__item file"
 >
   <div
     className="files__summary"
@@ -12,6 +12,7 @@ exports[`<File /> should render normaly 1`] = `
     </WithStyles(ListItemIcon)>
     <WithStyles(Button)
       onClick={[Function]}
+      onContextMenu={[Function]}
     >
       <WithStyles(ListItemText)
         primary="app.js"

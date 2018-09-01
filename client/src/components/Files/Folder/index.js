@@ -21,7 +21,11 @@ class Folder extends PureComponent {
 
     return (
       <Fragment>
-        <ListItem button onClick={this.handleClick} className="files__item">
+        <ListItem
+          button
+          onContextMenu={this.props.handleContextMenuOpen}
+          onClick={this.handleClick} className="files__item"
+        >
           <div className="files__summary">
             <ListItemIcon>
               {
@@ -52,6 +56,7 @@ Folder.propTypes = {
   name: PropTypes.string.isRequired,
   children: PropTypes.array.isRequired,
   drow: PropTypes.func.isRequired,
+  handleContextMenuOpen: PropTypes.func.isRequired,
 };
 
 export default Folder;

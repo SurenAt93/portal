@@ -15,8 +15,19 @@ class Files extends PureComponent {
   static uniqueKey = 0; // There should be an id of file from OS
 
   drow = ({ name, children }) => children
-    ? <Folder key={Files.uniqueKey++} name={name} children={children} drow={this.drow} />
-    : <File handleFileOpen={this.props.handleFileOpen} key={Files.uniqueKey++} name={name} />;
+    ? <Folder
+      key={Files.uniqueKey++}
+      name={name}
+      children={children}
+      drow={this.drow}
+      handleContextMenuOpen={this.props.handleFolderContextMenuOpen}
+    />
+    : <File
+      handleFileOpen={this.props.handleFileOpen}
+      key={Files.uniqueKey++}
+      name={name}
+      handleContextMenuOpen={this.props.handleFileContextMenuOpen}
+    />;
 
   render() {
     return (
@@ -38,6 +49,8 @@ class Files extends PureComponent {
 Files.propTypes = {
   data: PropTypes.object,
   handleFileOpen: PropTypes.func,
+  handleFolderContextMenuOpen: PropTypes.func.isRequired,
+  handleFileContextMenuOpen: PropTypes.func.isRequired,
 };
 
 Files.defaultProps = {

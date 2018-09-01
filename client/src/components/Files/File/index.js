@@ -9,11 +9,14 @@ import ListItemText from '@material-ui/core/ListItemText';
 // Icons
 import FileIcon from '@material-ui/icons/Notes';
 
-const File = ({ name, handleFileOpen }) => (
+const File = ({ name, handleFileOpen, handleContextMenuOpen }) => (
   <ListItem className="files__item file">
     <div className="files__summary">
       <ListItemIcon><FileIcon /></ListItemIcon>
-      <Button onClick={_ => handleFileOpen(name)}>
+      <Button
+        onContextMenu={handleContextMenuOpen}
+        onClick={_ => handleFileOpen(name)}
+      >
         <ListItemText primary={name}/>
       </Button>
     </div>
@@ -23,6 +26,7 @@ const File = ({ name, handleFileOpen }) => (
 File.propTypes = {
   name: PropTypes.string.isRequired,
   handleFileOpen: PropTypes.func,
+  handleContextMenuOpen: PropTypes.func.isRequired,
 };
 
 File.defaultProps = {
