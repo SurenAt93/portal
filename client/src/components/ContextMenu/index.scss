@@ -1,0 +1,13 @@
+.context-menu {
+  &__paper {
+    background-color: #fff;
+
+    ul li {
+      color: #202124;
+
+      &:hover {
+        background-color: #eee;
+      }
+    }
+  }
+}
