@@ -3099,6 +3099,14 @@ FROM table_reference
 [branch "master"]
   remote = origin
   merge = refs/heads/master`,
+  'rm.py': '# Nothing',
+  'sample.xml': `<?xml version="1.0" encoding="UTF-8"?>
+<note>
+  <to>B</to>
+  <from>A</from>
+  <heading>Roud</heading>
+  <body>...</body>
+</note>`,
 };
 
 export default sampleFiles;

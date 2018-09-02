@@ -20,7 +20,7 @@ class Files extends PureComponent {
       key={path}
       path={path}
       name={name}
-      children={children}
+      children={[...children].sort((a, b) => +!a.children - +!b.children)}
       drow={this.drow}
       handleContextMenuOpen={this.props.handleFolderContextMenuOpen}
     />

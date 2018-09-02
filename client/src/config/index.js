@@ -49,6 +49,7 @@ const sampleFileStructure = {
     {
       name: 'home',
       children: [
+        { name: 'sample.xml' },
         {
           name: 'project_1',
           children: [
@@ -69,16 +70,15 @@ const sampleFileStructure = {
     },
     {
       name: 'empty_folder',
-      loading: true,
-      children: []
+      children: [],
     },
+    { name: 'rm.py' },
     {
       name: 'opt',
       children: [
           {
             name: 'libs',
             children: [
-              { name: '.git', children: [ { name: 'config.yaml' } ] },
               { name: 'ssd.rs' },
               { name: 'so.c' },
               { name: 'log.py' },
@@ -90,6 +90,7 @@ const sampleFileStructure = {
               { name: 'config.json' },
               { name: 'init.go' },
               { name: 'sc.lua' },
+              { name: '.git', children: [ { name: 'config.yaml' } ] },
               { name: 'query.sql' },
               { name: 'tb.xml' },
             ],

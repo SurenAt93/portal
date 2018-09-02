@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import List from '@material-ui/core/List';
@@ -11,7 +11,7 @@ import Collapse from '@material-ui/core/Collapse';
 import FolderIcon from '@material-ui/icons/Folder';
 import FolderIconOpen from '@material-ui/icons/FolderOpen';
 
-class Folder extends Component {
+class Folder extends PureComponent {
   state = { open: false };
 
   handleClick = _ => this.setState(state => ({ open: !state.open }));
