@@ -11,12 +11,14 @@ import Folder from './Folder';
 import './index.scss';
 
 class Files extends PureComponent {
-
-  static uniqueKey = 0; // There should be an id of file from OS
-
-  drow = ({ name, children }) => children
+  drow = (
+    { name, children },
+    parent,
+    path = parent ? `${parent}${name}${children ? '/' : ''}` : name,
+  ) => children
     ? <Folder
-      key={Files.uniqueKey++}
+      key={path}
+      path={path}
       name={name}
       children={children}
       drow={this.drow}
@@ -24,19 +26,23 @@ class Files extends PureComponent {
     />
     : <File
       handleFileOpen={this.props.handleFileOpen}
-      key={Files.uniqueKey++}
+      key={path}
+      path={path}
       name={name}
+      open={this.props.openFilePath === path}
       handleContextMenuOpen={this.props.handleFileContextMenuOpen}
     />;
 
   render() {
+    const { data } = this.props;
+
     return (
       <div className="files">
         {
-          this.props.data
+          data
             ? (
               <List dense={true}>
-                {this.drow(this.props.data)}
+                {this.drow(data)}
               </List>
             )
             : 'Empty...'
@@ -48,6 +54,7 @@ class Files extends PureComponent {
 
 Files.propTypes = {
   data: PropTypes.object,
+  openFilePath: PropTypes.string,
   handleFileOpen: PropTypes.func,
   handleFolderContextMenuOpen: PropTypes.func.isRequired,
   handleFileContextMenuOpen: PropTypes.func.isRequired,

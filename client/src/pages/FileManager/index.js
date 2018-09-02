@@ -17,10 +17,10 @@ import './index.scss';
 class FileManager extends PureComponent {
 
   state = {
-    currentFileName: null,
     updateLine: 0,
     anchorElOfOpenedContextMenu: null,
     contextMenuType: 'file',
+    openFilePath: null,
   };
 
   // NOTE ::: It's just for demo and should be removed
@@ -67,8 +67,11 @@ class FileManager extends PureComponent {
     'folder': [...this.commonItems],
   };
 
-  handleFileOpen = name =>
-    this.setState({ currentFileName: name, updateLine: +!this.state.updateLine });
+  handleFileOpen = path =>
+    this.setState({
+      updateLine: +!this.state.updateLine,
+      openFilePath: path,
+    });
 
   preventDefaultContextMenuBehavior = ev => ev.preventDefault();
 
@@ -87,17 +90,17 @@ class FileManager extends PureComponent {
 
   render() {
     const {
-      currentFileName,
+      openFilePath,
       anchorElOfOpenedContextMenu,
       contextMenuType,
     } = this.state;
 
-    const language = currentFileName
-      ? mapExtToLang[currentFileName.split('.')[1]]
+    const language = openFilePath
+      ? mapExtToLang[openFilePath.split('.').pop()]
       : 'python'; // TODO ::: Move to config as default programming language
 
-    const value = currentFileName
-      ? sampleFiles[currentFileName]
+    const value = openFilePath
+      ? sampleFiles[openFilePath.split('/').pop()]
       : '';
 
     return (
@@ -116,6 +119,7 @@ class FileManager extends PureComponent {
               handleFolderContextMenuOpen={this.handleFolderContextMenuOpen}
               handleFileContextMenuOpen={this.handleFileContextMenuOpen}
               data={sampleFileStructure}
+              openFilePath={openFilePath}
             />
             <CodeEditor
               className="code-editor"

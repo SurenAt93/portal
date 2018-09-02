@@ -7,7 +7,8 @@ describe('<File />', () => {
   it('should render normaly', () => {
     const component = shallow(
       <File
-        name="app.js"
+        name="__main__.py"
+        path="/usr/lib/ssm/__main__.py"
         handleContextMenuOpen={_ => {}}
       />
     );
@@ -19,7 +20,8 @@ describe('<File />', () => {
     const clickFn = jest.fn();
     const component = shallow(
       <File
-        name="app.js"
+        name="__main__.py"
+        path="/usr/lib/ssm/__main__.py"
         handleFileOpen={clickFn}
         handleContextMenuOpen={_ => {}}
       />
@@ -37,7 +39,8 @@ describe('<File />', () => {
     const contextMenuFn = jest.fn();
     const component = shallow(
       <File
-        name="app.js"
+        name="__main__.py"
+        path="/usr/lib/ssm/__main__.py"
         handleContextMenuOpen={contextMenuFn}
       />
     );

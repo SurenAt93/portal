@@ -5,6 +5,14 @@
   overflow: scroll;
   white-space: nowrap;
 
+  &__file {
+    &--open {
+      border-right: 4px solid #65cdc4;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
   ul {
     height: 100%;
     min-width: max-content;

@@ -11,11 +11,12 @@ exports[`<File /> should render normaly 1`] = `
       <pure(Notes) />
     </WithStyles(ListItemIcon)>
     <WithStyles(Button)
+      className=""
       onClick={[Function]}
       onContextMenu={[Function]}
     >
       <WithStyles(ListItemText)
-        primary="app.js"
+        primary="__main__.py"
       />
     </WithStyles(Button)>
   </div>
