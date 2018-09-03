@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import Editor from 'components/MonacoEditor';
+import MonacoEditor from './MonacoEditor';
 
-class CodeEditor extends PureComponent {
+class Editor extends PureComponent {
 
   state = {
     isEditorMounted: false,
@@ -24,7 +24,7 @@ class CodeEditor extends PureComponent {
 
   render() {
     return (
-      <Editor
+      <MonacoEditor
         value={this.props.value}
         language={this.props.language}
         valueGetter={getEditorValue => (this.getEditorValue = getEditorValue)}
@@ -35,16 +35,16 @@ class CodeEditor extends PureComponent {
   }
 }
 
-CodeEditor.defaultProps = {
+Editor.defaultProps = {
   value: '',
   language: 'html',
   line: 0,
 };
 
-CodeEditor.propTypes = {
+Editor.propTypes = {
   value: PropTypes.string,
   language: PropTypes.string,
   line: PropTypes.number,
 };
 
-export default CodeEditor;
+export default Editor;

@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 // Components
-import { Monitoring, FileManager } from 'pages';
+import { Monitoring, SCE } from 'pages';
 import NoMatch from 'components/NoMatch';
 
 import './index.scss';
@@ -15,7 +15,7 @@ const Content = props => (
     <Paper className="main__wrapper--paper" elevation={0}>
       <Switch>
         <Route exact path="/" component={Monitoring} />
-        <Route exact path="/file-manager" component={FileManager} />
+        <Route exact path="/file-manager" component={SCE} />
         <Route exact path="/404" component={NoMatch} />
         <Redirect to="/404" />
       </Switch>

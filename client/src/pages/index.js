@@ -1,2 +1,2 @@
 export { default as Monitoring } from './Monitoring';
-export { default as FileManager } from './FileManager';
+export { default as SCE } from './SCE';

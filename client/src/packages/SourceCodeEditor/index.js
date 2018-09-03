@@ -3,7 +3,7 @@ import React, { PureComponent, Fragment } from 'react';
 import Splitter from 'm-react-splitters';
 
 // Components
-import CodeEditor from 'components/CodeEditor';
+import Editor from './components/Editor';
 import Files from 'components/Files';
 import ContextMenu from 'components/ContextMenu';
 
@@ -14,7 +14,7 @@ import sampleFiles from 'config/sampleFiles';
 // Styles
 import './index.scss';
 
-class FileManager extends PureComponent {
+class SourceCodeEditor extends PureComponent {
 
   state = {
     updateLine: 0,
@@ -121,7 +121,7 @@ class FileManager extends PureComponent {
               data={sampleFileStructure}
               openFilePath={openFilePath}
             />
-            <CodeEditor
+            <Editor
               className="code-editor"
               line={this.state.updateLine}
               value={value}
@@ -139,8 +139,8 @@ class FileManager extends PureComponent {
   }
 }
 
-FileManager.propTypes = {
+SourceCodeEditor.propTypes = {
   // This component doesn't expect any props from outside (until nowadays)
 };
 
-export default FileManager;
+export default SourceCodeEditor;
