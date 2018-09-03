@@ -49,23 +49,30 @@ class SourceCodeEditor extends PureComponent {
           className="source-code-editor fb"
         >
           <Splitter
-            position="vertical"
-            primaryPaneWidth="15%"
-            primaryPaneMinWidth="0"
+            position="horizontal"
+            primaryPaneMaxHeight="100%"
+            primaryPaneMinHeight="50%"
+            primaryPaneHeight="95%"
           >
-            <SideBar
-              handleFileOpen={this.handleFileOpen}
-              data={sampleFileStructure}
-              openFilePath={openFilePath}
-            />
-            <Editor
-              className="fb"
-              line={this.state.updateLine}
-              value={value}
-              language={language}
-            />
+            <Splitter
+              position="vertical"
+              primaryPaneWidth="15%"
+              primaryPaneMinWidth="0"
+            >
+              <SideBar
+                handleFileOpen={this.handleFileOpen}
+                data={sampleFileStructure}
+                openFilePath={openFilePath}
+              />
+              <Editor
+                className="fb"
+                line={this.state.updateLine}
+                value={value}
+                language={language}
+              />
+            </Splitter>
+            <StatusBar />
           </Splitter>
-          <StatusBar />
         </div>
       </Fragment>
     );

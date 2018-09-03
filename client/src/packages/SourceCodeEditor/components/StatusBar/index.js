@@ -1,5 +1,7 @@
 import React from 'react';
 
-const StatusBar = props => <div>Status Bar ...</div>;
+import './index.scss';
+
+const StatusBar = props => <div className="status-bar">Status Bar ...</div>;
 
 export default StatusBar;
