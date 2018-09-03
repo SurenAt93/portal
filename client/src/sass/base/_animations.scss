@@ -1,0 +1,9 @@
+@keyframes slide-up {
+  0% {
+    transform: translateX(-15px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -5,7 +5,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import Collapse from '@material-ui/core/Collapse';
 
 // Icons
 import FolderIcon from '@material-ui/icons/Folder';
@@ -17,7 +16,7 @@ class Folder extends PureComponent {
   handleClick = _ => this.setState(state => ({ open: !state.open }));
 
   render() {
-    const { name, path, children, drow } = this.props;
+    const { name, path, children, draw } = this.props;
 
     return (
       <Fragment>
@@ -37,16 +36,13 @@ class Folder extends PureComponent {
             <ListItemText primary={name}/>
           </div>
         </ListItem>
-        <Collapse
-          className="files__folder--collapse"
-          in={this.state.open}
-          timeout="auto"
-          unmountOnExit
-        >
-          <List className="files__folder" dense={true}>
-            {children.map(child => drow(child, path))}
-          </List>
-        </Collapse>
+        {
+          this.state.open && <div className="collapse">
+            <List className="files__folder" dense={true}>
+              {children.map(child => draw(child, path))}
+            </List>
+          </div>
+        }
       </Fragment>
     );
   }
@@ -56,7 +52,7 @@ Folder.propTypes = {
   name: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
   children: PropTypes.array.isRequired,
-  drow: PropTypes.func.isRequired,
+  draw: PropTypes.func.isRequired,
   onContextMenu: PropTypes.func.isRequired,
 };
 

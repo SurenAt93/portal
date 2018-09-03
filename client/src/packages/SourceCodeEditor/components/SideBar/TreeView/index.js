@@ -11,7 +11,7 @@ import Folder from './Folder';
 import './index.scss';
 
 class TreeView extends PureComponent {
-  drow = (
+  draw = (
     { name, children },
     parent,
     path = parent ? `${parent}${name}${children ? '/' : ''}` : name,
@@ -21,7 +21,7 @@ class TreeView extends PureComponent {
       path={path}
       name={name}
       children={[...children].sort((a, b) => +!a.children - +!b.children)}
-      drow={this.drow}
+      draw={this.draw}
       onContextMenu={this.props.onFolderContextMenu}
     />
     : <File
@@ -43,7 +43,7 @@ class TreeView extends PureComponent {
             ? (
               // TODO ::: This list should be virtualized
               <List dense={true}>
-                {this.drow(data)}
+                {this.draw(data)}
               </List>
             )
             : 'Empty...'
