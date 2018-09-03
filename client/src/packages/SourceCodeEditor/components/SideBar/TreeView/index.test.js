@@ -1,12 +1,12 @@
 import React from 'react';
-import Files from '.';
+import TreeView from '.';
 
-describe('<Files />', () => {
+describe('<TreeView />', () => {
   it('should render correctly', () => {
     const component = shallow(
-      <Files
-        handleFolderContextMenuOpen={_ => {}}
-        handleFileContextMenuOpen={_ => {}}
+      <TreeView
+        onFolderContextMenu={_ => {}}
+        onFileContextMenu={_ => {}}
       />
     );
 

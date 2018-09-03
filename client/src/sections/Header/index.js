@@ -36,7 +36,7 @@ const TopBar = props => (
         </Typography>
         <Button
           component={Link}
-          to="/file-manager"
+          to="/sce"
           className="header__navigation--file-manager"
         >
           <FolderIcon />

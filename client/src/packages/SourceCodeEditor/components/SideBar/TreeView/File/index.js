@@ -11,12 +11,12 @@ import classNames from 'classnames';
 // Icons
 import FileIcon from '@material-ui/icons/Notes';
 
-const File = ({ name, handleFileOpen, handleContextMenuOpen, open, path }) => (
+const File = ({ name, handleFileOpen, onContextMenu, open, path }) => (
   <ListItem className="files__item file">
     <div className="files__summary">
       <ListItemIcon><FileIcon /></ListItemIcon>
       <Button
-        onContextMenu={handleContextMenuOpen}
+        onContextMenu={onContextMenu}
         onClick={_ => handleFileOpen(path)}
         className={classNames({ 'files__file--open': open })}
       >
@@ -31,7 +31,7 @@ File.propTypes = {
   path: PropTypes.string.isRequired,
   open: PropTypes.bool,
   handleFileOpen: PropTypes.func,
-  handleContextMenuOpen: PropTypes.func.isRequired,
+  onContextMenu: PropTypes.func.isRequired,
 };
 
 File.defaultProps = {

@@ -46,7 +46,7 @@ class SourceCodeEditor extends PureComponent {
       <Fragment>
         <div
           onContextMenu={this.preventDefaultContextMenuBehavior}
-          className="file-manager"
+          className="source-code-editor fb"
         >
           <Splitter
             position="vertical"
@@ -59,7 +59,7 @@ class SourceCodeEditor extends PureComponent {
               openFilePath={openFilePath}
             />
             <Editor
-              className="code-editor"
+              className="fb"
               line={this.state.updateLine}
               value={value}
               language={language}

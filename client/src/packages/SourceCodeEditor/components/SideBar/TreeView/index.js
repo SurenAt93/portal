@@ -22,7 +22,7 @@ class TreeView extends PureComponent {
       name={name}
       children={[...children].sort((a, b) => +!a.children - +!b.children)}
       drow={this.drow}
-      handleContextMenuOpen={this.props.handleFolderContextMenuOpen}
+      onContextMenu={this.props.onFolderContextMenu}
     />
     : <File
       handleFileOpen={this.props.handleFileOpen}
@@ -30,7 +30,7 @@ class TreeView extends PureComponent {
       path={path}
       name={name}
       open={this.props.openFilePath === path}
-      handleContextMenuOpen={this.props.handleFileContextMenuOpen}
+      onContextMenu={this.props.onFileContextMenu}
     />;
 
   render() {
@@ -41,6 +41,7 @@ class TreeView extends PureComponent {
         {
           data
             ? (
+              // TODO ::: This list should be virtualized
               <List dense={true}>
                 {this.drow(data)}
               </List>
@@ -56,8 +57,8 @@ TreeView.propTypes = {
   data: PropTypes.object,
   openFilePath: PropTypes.string,
   handleFileOpen: PropTypes.func,
-  handleFolderContextMenuOpen: PropTypes.func.isRequired,
-  handleFileContextMenuOpen: PropTypes.func.isRequired,
+  onFolderContextMenu: PropTypes.func.isRequired,
+  onFileContextMenu: PropTypes.func.isRequired,
 };
 
 TreeView.defaultProps = {

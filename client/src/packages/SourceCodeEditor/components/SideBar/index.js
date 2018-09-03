@@ -77,8 +77,8 @@ class SideBar extends PureComponent {
         <div style={sideBarStyles}>
           <TreeView 
             {...this.props}
-            handleFolderContextMenuOpen={this.handleFolderContextMenuOpen}
-            handleFileContextMenuOpen={this.handleFileContextMenuOpen}
+            onFolderContextMenu={this.handleFolderContextMenuOpen}
+            onFileContextMenu={this.handleFileContextMenuOpen}
           />
         </div>
         <ContextMenu

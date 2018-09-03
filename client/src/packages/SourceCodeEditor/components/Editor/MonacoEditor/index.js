@@ -100,7 +100,7 @@ class Editor extends PureComponent {
     const { width, height } = this.props;
 
     return (
-      <section className="monaco-editor__wrapper">
+      <section className="monaco-editor__wrapper fb">
         {this.state.isLoading && <div className="monaco-editor__preloader">
           <CircularProgress
             size={100}
@@ -111,7 +111,7 @@ class Editor extends PureComponent {
         <div
           ref={monacoContainer => (this.monacoContainer = monacoContainer)}
           style={{ width, height }}
-          className="monaco-editor__content"
+          className="fb"
         />
       </section>
     );
