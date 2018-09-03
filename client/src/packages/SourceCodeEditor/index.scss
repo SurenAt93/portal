@@ -9,10 +9,11 @@
     &.vertical {
       min-width: 1px;
       width: 1px;
-      transition: 0.07s width;
+      transition: 0.07s all;
 
       &:hover {
         width: 10px;
+        margin-left: -5px;
 
         &::after {
           content: '';
@@ -42,10 +43,11 @@
     &.horizontal {
       min-height: 1px;
       height: 1px;
-      transition: 0.07s height;
+      transition: 0.07s all;
 
       &:hover {
         height: 10px;
+        margin-top: -5px;
 
         &::after {
           content: '';
