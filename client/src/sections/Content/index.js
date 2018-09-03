@@ -15,7 +15,7 @@ const Content = props => (
     <Paper className="main__wrapper--paper" elevation={0}>
       <Switch>
         <Route exact path="/" component={Monitoring} />
-        <Route exact path="/file-manager" component={SCE} />
+        <Route exact path="/sce" component={SCE} />
         <Route exact path="/404" component={NoMatch} />
         <Redirect to="/404" />
       </Switch>

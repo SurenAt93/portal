@@ -10,7 +10,7 @@ import Folder from './Folder';
 // Styles
 import './index.scss';
 
-class Files extends PureComponent {
+class TreeView extends PureComponent {
   drow = (
     { name, children },
     parent,
@@ -52,7 +52,7 @@ class Files extends PureComponent {
   }
 }
 
-Files.propTypes = {
+TreeView.propTypes = {
   data: PropTypes.object,
   openFilePath: PropTypes.string,
   handleFileOpen: PropTypes.func,
@@ -60,8 +60,8 @@ Files.propTypes = {
   handleFileContextMenuOpen: PropTypes.func.isRequired,
 };
 
-Files.defaultProps = {
+TreeView.defaultProps = {
   handleFileOpen: _ => {},
 };
 
-export default Files;
+export default TreeView;

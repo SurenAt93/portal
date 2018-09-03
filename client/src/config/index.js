@@ -10,7 +10,7 @@ const themes = {
     },
   },
 
-  fileManager: {
+  sce: {
     palette: {
       primary: {
         main: '#202124',

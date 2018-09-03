@@ -4,8 +4,8 @@ import Splitter from 'm-react-splitters';
 
 // Components
 import Editor from './components/Editor';
-import Files from 'components/Files';
-import ContextMenu from 'components/ContextMenu';
+import SideBar from './components/SideBar';
+import ContextMenu from './components/SideBar/ContextMenu';
 
 // Config
 import { sampleFileStructure, mapExtToLang } from 'config';
@@ -114,7 +114,7 @@ class SourceCodeEditor extends PureComponent {
             primaryPaneWidth="15%"
             primaryPaneMinWidth="0"
           >
-            <Files
+            <SideBar
               handleFileOpen={this.handleFileOpen}
               handleFolderContextMenuOpen={this.handleFolderContextMenuOpen}
               handleFileContextMenuOpen={this.handleFileContextMenuOpen}

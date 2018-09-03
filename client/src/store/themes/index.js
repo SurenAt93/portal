@@ -12,12 +12,12 @@ import { themes as configThemes } from 'config';
 
 const themes = {
   default: createMuiTheme(configThemes.default),
-  fileManager: createMuiTheme(configThemes.fileManager),
+  sce: createMuiTheme(configThemes.sce),
 };
 
 const mapRouteToThemes = {
   '/': 'default',
-  '/file-manager': 'fileManager',
+  '/sce': 'sce',
 }
 
 class ThemeProvider extends PureComponent {
