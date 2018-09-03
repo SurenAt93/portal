@@ -14,7 +14,9 @@
       &:hover {
         width: 10px;
         margin-left: -5px;
+      }
 
+      &:active {
         &::after {
           content: '';
           background-color: transparent;
@@ -48,7 +50,9 @@
       &:hover {
         height: 10px;
         margin-top: -5px;
+      }
 
+      &:active {
         &::after {
           content: '';
           background-color: transparent;
