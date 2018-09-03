@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
 import './index.scss';
 
-const StatusBar = props => <div className="status-bar">Status Bar ...</div>;
+class StatusBar extends PureComponent {
+  render() {
+    return <div className="status-bar">Status Bar ...</div>;
+  }
+}
 
 export default StatusBar;

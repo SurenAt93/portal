@@ -22,7 +22,7 @@ describe('<File />', () => {
       <File
         name="__main__.py"
         path="/usr/lib/ssm/__main__.py"
-        handleFileOpen={clickFn}
+        onOpen={clickFn}
         onContextMenu={_ => {}}
       />
     );

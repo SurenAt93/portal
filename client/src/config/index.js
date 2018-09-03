@@ -43,15 +43,24 @@ const helperTexts = { };
 
 const messages = { };
 
+// NOTE ::: It's just for demo
+const normalizeDataStructure = obj =>
+  obj.children &&
+  obj.children.sort((a, b) => +!a.children - +!b.children) &&
+  obj.children.forEach(normalizeDataStructure);
+
 const sampleFileStructure = {
   name: '/',
+  open: false,
   children: [
     {
       name: 'home',
+      open: false,
       children: [
         { name: 'sample.xml' },
         {
           name: 'project_1',
+          open: false,
           children: [
             { name: 'app.js' },
             { name: 'config.js' },
@@ -60,6 +69,7 @@ const sampleFileStructure = {
         },
         {
           name: 'project_2',
+          open: false,
           children: [
             { name: 'index.html' },
             { name: 'script.js' },
@@ -70,14 +80,17 @@ const sampleFileStructure = {
     },
     {
       name: 'empty_folder',
+      open: false,
       children: [],
     },
     { name: 'rm.py' },
     {
       name: 'opt',
+      open: false,
       children: [
           {
             name: 'libs',
+            open: false,
             children: [
               { name: 'ssd.rs' },
               { name: 'so.c' },
@@ -90,7 +103,7 @@ const sampleFileStructure = {
               { name: 'config.json' },
               { name: 'init.go' },
               { name: 'sc.lua' },
-              { name: '.git', children: [ { name: 'config.yaml' } ] },
+              { name: '.git', open: false, children: [ { name: 'config.yaml' } ] },
               { name: 'query.sql' },
               { name: 'tb.xml' },
             ],
@@ -99,6 +112,8 @@ const sampleFileStructure = {
     },
   ],
 };
+
+normalizeDataStructure(sampleFileStructure);
 
 const mapExtToLang = {
   'js': 'javascript',

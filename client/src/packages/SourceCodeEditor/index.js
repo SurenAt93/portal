@@ -19,6 +19,7 @@ class SourceCodeEditor extends PureComponent {
   state = {
     updateLine: 0,
     openFilePath: null,
+    fs: sampleFileStructure,
   };
 
   handleFileOpen = path =>
@@ -26,6 +27,8 @@ class SourceCodeEditor extends PureComponent {
       updateLine: +!this.state.updateLine,
       openFilePath: path,
     });
+
+  handleFolderToggle = path => ({ /* TODO ::: Implement handle of folder toggle */ });
 
   preventDefaultContextMenuBehavior = ev => ev.preventDefault();
 
@@ -60,8 +63,9 @@ class SourceCodeEditor extends PureComponent {
               primaryPaneMinWidth="0"
             >
               <SideBar
-                handleFileOpen={this.handleFileOpen}
-                data={sampleFileStructure}
+                onFileOpen={this.handleFileOpen}
+                onFolderToggle={this.handleFolderToggle}
+                data={this.state.fs}
                 openFilePath={openFilePath}
               />
               <Editor

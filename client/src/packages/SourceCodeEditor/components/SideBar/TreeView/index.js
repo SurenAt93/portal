@@ -12,7 +12,7 @@ import './index.scss';
 
 class TreeView extends PureComponent {
   draw = (
-    { name, children },
+    { name, children, open },
     parent,
     path = parent ? `${parent}${name}${children ? '/' : ''}` : name,
   ) => children
@@ -20,12 +20,14 @@ class TreeView extends PureComponent {
       key={path}
       path={path}
       name={name}
-      children={[...children].sort((a, b) => +!a.children - +!b.children)}
+      open={open}
+      children={children}
       draw={this.draw}
       onContextMenu={this.props.onFolderContextMenu}
+      onToggle={this.props.onFolderToggle}
     />
     : <File
-      handleFileOpen={this.props.handleFileOpen}
+      onOpen={this.props.onFileOpen}
       key={path}
       path={path}
       name={name}
@@ -56,7 +58,8 @@ class TreeView extends PureComponent {
 TreeView.propTypes = {
   data: PropTypes.object,
   openFilePath: PropTypes.string,
-  handleFileOpen: PropTypes.func,
+  onFileOpen: PropTypes.func,
+  onFolderToggle: PropTypes.func,
   onFolderContextMenu: PropTypes.func.isRequired,
   onFileContextMenu: PropTypes.func.isRequired,
 };
